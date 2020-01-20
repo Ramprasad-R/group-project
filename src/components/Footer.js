@@ -5,7 +5,7 @@ export default class Footer extends Component {
     return (
       <footer>
         <p>
-          Made with<span class="footerLogo"> ❤</span> at Codaisseur
+          Made with<span className="footerLogo"> ❤</span> at Codaisseur
         </p>
       </footer>
     );
