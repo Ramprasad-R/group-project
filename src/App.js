@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         <Header />
         <FetchData />
-        <Footer />;
+        <Footer />
       </div>
     );
   }
