@@ -4,12 +4,14 @@ export default class FetchData extends Component {
   state = {
     loading: true,
     foodData: [],
-    error: false
+    error: false,
+    query: "olives"
   };
-  componentDidMount = async () => {
+
+  invokeAPIToFetchData = async () => {
     try {
       const foodItems = await fetch(
-        `https://api.spoonacular.com/food/products/search?query=pizza&apiKey=${process.env.REACT_APP_API_KEY}`
+        `https://api.spoonacular.com/food/products/search?query=${this.state.query}&apiKey=${process.env.REACT_APP_API_KEY}`
       );
       const parsedFoodItems = await foodItems.json();
       console.log("In componentDidMount", foodItems);
@@ -24,6 +26,14 @@ export default class FetchData extends Component {
         error: error
       });
     }
+  };
+
+  componentDidMount = async () => this.invokeAPIToFetchData();
+
+  changeQuery = () => {
+    this.setState({ query: "cheese" }, () => {
+      this.invokeAPIToFetchData();
+    });
   };
   render() {
     console.log("I am in render", this.state.foodData);
@@ -40,7 +50,11 @@ export default class FetchData extends Component {
     return this.state.loading ? (
       <div> Data Loading ... </div>
     ) : (
-      <div>{displayData}</div>
+      <div>
+        {/*  added to test api */}
+        <button onClick={this.changeQuery}>Cheese</button> {/*  end of test */}
+        {displayData}
+      </div>
     );
   }
 }
