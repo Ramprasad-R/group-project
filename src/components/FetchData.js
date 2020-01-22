@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import RecipeCards from "./RecipeCards";
+import SearchRecipe from "./SearchRecipe";
+
 export default class FetchData extends Component {
   state = {
     loading: true,
@@ -50,11 +52,14 @@ export default class FetchData extends Component {
     return this.state.loading ? (
       <div> Data Loading ... </div>
     ) : (
-      <div>
-        {/*  added to test api */}
-        <button onClick={this.changeQuery}>Cheese</button> {/*  end of test */}
-        {displayData}
-      </div>
-    );
+        <div>
+          {/*  added to test api */}
+          {/* <button onClick={this.changeQuery}>Cheese</button>  end of test */}
+
+
+          <SearchRecipe />
+          {displayData}
+        </div>
+      );
   }
 }
