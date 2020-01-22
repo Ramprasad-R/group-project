@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RecipeCards from "./RecipeCards";
+import "./FetchData.css";
 export default class FetchData extends Component {
   state = {
     loading: true,
@@ -42,7 +43,7 @@ export default class FetchData extends Component {
         <RecipeCards
           imageUrl={item.image}
           title={item.title}
-          receipeID={item.id}
+          recipeID={item.id}
         />
       );
     });
@@ -50,11 +51,7 @@ export default class FetchData extends Component {
     return this.state.loading ? (
       <div> Data Loading ... </div>
     ) : (
-      <div>
-        {/*  added to test api */}
-        <button onClick={this.changeQuery}>Cheese</button> {/*  end of test */}
-        {displayData}
-      </div>
+      <div className="displayRecipeCard">{displayData}</div>
     );
   }
 }
