@@ -1,11 +1,14 @@
 import React from "react";
+import "./RecipeCards.css";
 export default class RecipeCard extends React.Component {
   render() {
-    const { receipeID, imageUrl, title } = this.props;
+    const { recipeID, imageUrl, title } = this.props;
     return (
-      <div id={receipeID}>
+      <div className="recipeCard" id={recipeID}>
         <img src={imageUrl} alt={title}></img>
-        <h4>{title}</h4>
+        <p>
+          <em>{title}</em>
+        </p>
       </div>
     );
   }

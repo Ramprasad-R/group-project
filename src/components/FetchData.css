@@ -1,0 +1,7 @@
+.displayRecipeCard {
+  width: 80%;
+  height: auto;
+  border: 1px solid #000;
+  text-align: center;
+  margin: 20px auto 50px auto;
+}
