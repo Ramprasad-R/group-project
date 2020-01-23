@@ -7,16 +7,11 @@ export default class RecipeCard extends React.Component {
     return (
       <div className="recipeCard" id={recipeID}>
         <Link to={`/productingredients/${recipeID}`}>
-          {" "}
           <img src={imageUrl} alt={title}></img>
           <p>
             <em>{title}</em>
           </p>
         </Link>
-        <img src={imageUrl} alt={title}></img>
-        <p>
-          <em>{title}</em>
-        </p>
       </div>
     );
   }

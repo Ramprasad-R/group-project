@@ -32,8 +32,14 @@ footer p {
 }
 
 .nutrientsItem {
-  width: 20%;
-  height: 20%;
-  margin: 10px;
+  border: 1px solid #000;
+  width: 30%;
+  height: auto;
+  margin: 10px auto;
   padding: 20px;
+  text-align: center;
+}
+
+.productIngredients {
+  text-align: center;
 }
