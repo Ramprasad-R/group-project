@@ -1,12 +1,20 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Tab } from "react-bootstrap";
 
 export default class SearchRecipe extends Component {
-  state = { name: "" };
+  propTypes = {
+    changeQuery: PropTypes.func
+  };
+
+  state = { query: "" };
+
   handleSubmit = event => {
     event.preventDefault();
-    console.log(`Submitting form with query`, this.state.name);
+    this.props.changeQuery(this.state.query);
+    console.log(`Submitting form with query`, this.state.query);
   };
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -21,9 +29,9 @@ export default class SearchRecipe extends Component {
             Search Recipe for:
             <input
               type="text"
-              name="name"
+              name="query"
               onChange={this.handleChange}
-              //   value={this.state.query}
+              value={this.state.query}
             />
           </label>
           <input type="submit" value="Search" />
