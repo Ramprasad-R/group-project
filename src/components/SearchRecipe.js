@@ -10,7 +10,11 @@ export default class SearchRecipe extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.changeQuery(this.state.query);
+    if (this.state.query) {
+      this.props.changeQuery(this.state.query);
+    } else {
+      return;
+    }
   };
 
   handleChange = event => {
@@ -23,15 +27,14 @@ export default class SearchRecipe extends Component {
     return (
       <div className="search-recipe">
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Search Recipe for:
-            <input
-              type="text"
-              name="query"
-              onChange={this.handleChange}
-              value={this.state.query}
-            />
-          </label>
+          <input
+            type="text"
+            name="query"
+            onChange={this.handleChange}
+            value={this.state.query}
+            placeholder="Search food product to get nutrients value"
+          />
+
           <input type="submit" value="Search" />
         </form>
       </div>

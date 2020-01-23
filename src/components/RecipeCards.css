@@ -9,3 +9,10 @@
   width: 150px;
   height: 150px;
 }
+
+.recipeCard p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
