@@ -11,9 +11,18 @@ function DisplayProductIngredients(props) {
         {nutrition.nutrients &&
           nutrition.nutrients.map(nutrient => (
             <div className="nutrientsItem">
-              <p>nutrient.title</p> <p>nutrient.amount</p>
-              <p>nutrients.unit</p>
-              <p>nutrients.percentOfDailyNeeds</p>
+              <p>
+                Title: <em>{nutrient.title}</em>
+              </p>{" "}
+              <p>
+                Amount: <em>{nutrient.amount}</em>
+              </p>
+              <p>
+                Unit: <em>{nutrient.unit}</em>
+              </p>
+              <p>
+                Percent of daily needs: <em>{nutrient.percentOfDailyNeeds}</em>
+              </p>
             </div>
           ))}{" "}
       </div>
