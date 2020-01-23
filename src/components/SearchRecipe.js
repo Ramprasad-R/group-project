@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Tab } from "react-bootstrap";
 
 export default class SearchRecipe extends Component {
   propTypes = {
@@ -12,7 +11,6 @@ export default class SearchRecipe extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.changeQuery(this.state.query);
-    console.log(`Submitting form with query`, this.state.query);
   };
 
   handleChange = event => {
