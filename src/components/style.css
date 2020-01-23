@@ -17,3 +17,8 @@ footer {
 footer p {
   color: rgb(112, 112, 112);
 }
+
+.search-recipe {
+  text-align: center;
+  padding: 20px;
+}
