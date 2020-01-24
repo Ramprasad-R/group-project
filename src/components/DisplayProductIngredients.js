@@ -1,10 +1,16 @@
 import React from "react";
 
 function DisplayProductIngredients(props) {
-  const { title, nutrition } = props;
+  const { nutrition } = props;
+  console.log("info props", props);
+
   return (
     <div className="productIngredientsContainer">
-      <h1>{title}</h1>
+      <div>
+        <div>
+          <h6>Product Nutrients Value</h6>
+        </div>
+      </div>
       {/* {images && images.map(url => <img src={url} alt="Dog" />)} */}
 
       <div className="nutritionInfo">

@@ -28,6 +28,7 @@ export default class SearchRecipe extends Component {
       <div className="search-recipe">
         <form onSubmit={this.handleSubmit}>
           <input
+            size="32"
             type="text"
             name="query"
             onChange={this.handleChange}

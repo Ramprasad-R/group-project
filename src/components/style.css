@@ -50,3 +50,21 @@ footer p {
 .productIngredients {
   text-align: center;
 }
+
+.productInfoTitle {
+  padding: 30px;
+  border: 1px solid #000;
+  width: 80%;
+  height: auto;
+  margin: 20px auto;
+}
+.productInfoTitle img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.productInfoTitle h4 {
+  display: inline-block;
+}
