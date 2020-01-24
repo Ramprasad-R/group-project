@@ -32,9 +32,12 @@ export default class ProductIngredients extends Component {
       <div> Data Loading ... </div>
     ) : (
       <div className="productIngredients">
-        <h1>Product Nutrients Value</h1>
+        <div className="productInfoTitle">
+          <img src={this.state.productInfo.images[0]} alt="" />
+          <h4>{this.state.productInfo.title}</h4>
+        </div>
         <DisplayProductIngredients
-          title={this.state.productInfo.title}
+          productInfo={this.state.productInfo}
           nutrition={this.state.productInfo.nutrition}
         />
         <Link to="/">Go back to the index</Link>
