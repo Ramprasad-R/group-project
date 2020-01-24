@@ -1,37 +1,42 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import "./ProductIngredients.css";
 function DisplayProductIngredients(props) {
-  const { nutrition } = props;
-  console.log("info props", props);
-
+  const { productInfo, nutrition } = props;
   return (
-    <div className="productIngredientsContainer">
-      <div>
+    <div className="productIngredients">
+      <div className="productInfoTitle">
+        <img src={productInfo.images[0]} alt="" />
+        <h4>{productInfo.title}</h4>
+      </div>
+      <div className="productIngredientsContainer">
         <div>
-          <h6>Product Nutrients Value</h6>
+          <div>
+            <h6>Product Nutrients Value</h6>
+          </div>
+        </div>
+        <div className="nutritionInfo">
+          {nutrition.nutrients &&
+            nutrition.nutrients.map(nutrient => (
+              <div className="nutrientsItem">
+                <p>
+                  Title: <em>{nutrient.title}</em>
+                </p>{" "}
+                <p>
+                  Amount: <em>{nutrient.amount}</em>
+                </p>
+                <p>
+                  Unit: <em>{nutrient.unit}</em>
+                </p>
+                <p>
+                  Percent of daily needs:{" "}
+                  <em>{nutrient.percentOfDailyNeeds}</em>
+                </p>
+              </div>
+            ))}{" "}
         </div>
       </div>
-      {/* {images && images.map(url => <img src={url} alt="Dog" />)} */}
-
-      <div className="nutritionInfo">
-        {nutrition.nutrients &&
-          nutrition.nutrients.map(nutrient => (
-            <div className="nutrientsItem">
-              <p>
-                Title: <em>{nutrient.title}</em>
-              </p>{" "}
-              <p>
-                Amount: <em>{nutrient.amount}</em>
-              </p>
-              <p>
-                Unit: <em>{nutrient.unit}</em>
-              </p>
-              <p>
-                Percent of daily needs: <em>{nutrient.percentOfDailyNeeds}</em>
-              </p>
-            </div>
-          ))}{" "}
-      </div>
+      <Link to="/">Go back to the index</Link>
     </div>
   );
 }

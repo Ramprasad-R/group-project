@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import DisplayProductIngredients from "./DisplayProductIngredients";
+import "./ProductIngredients.css";
 
 export default class ProductIngredients extends Component {
   state = {
@@ -31,17 +32,10 @@ export default class ProductIngredients extends Component {
     return this.state.loading ? (
       <div> Data Loading ... </div>
     ) : (
-      <div className="productIngredients">
-        <div className="productInfoTitle">
-          <img src={this.state.productInfo.images[0]} alt="" />
-          <h4>{this.state.productInfo.title}</h4>
-        </div>
-        <DisplayProductIngredients
-          productInfo={this.state.productInfo}
-          nutrition={this.state.productInfo.nutrition}
-        />
-        <Link to="/">Go back to the index</Link>
-      </div>
+      <DisplayProductIngredients
+        productInfo={this.state.productInfo}
+        nutrition={this.state.productInfo.nutrition}
+      />
     );
   }
 }
