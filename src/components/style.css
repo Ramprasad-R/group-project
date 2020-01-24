@@ -34,8 +34,7 @@ footer p {
 
 .nutrientsItem {
   border: 1px solid #000;
-  width: 30%;
-  height: auto;
+  width: 16rem;
   margin: 10px 10px;
   padding: 20px;
   text-align: left;
@@ -45,6 +44,10 @@ footer p {
 
 .nutrientsItem p {
   border-bottom: 1px dotted #000;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .productIngredients {
