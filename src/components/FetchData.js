@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import RecipeCards from "./RecipeCards";
 import "./FetchData.css";
 import SearchRecipe from "./SearchRecipe";
+import WelcomeBanner from "./WelcomeBanner";
+
 export default class FetchData extends Component {
   state = {
     loading: true,
@@ -49,6 +51,7 @@ export default class FetchData extends Component {
       <div> Data Loading ... </div>
     ) : (
       <div>
+        <WelcomeBanner />
         <SearchRecipe changeQuery={this.changeQuery} />
         <div className="displayRecipeCard">{displayData}</div>
       </div>
