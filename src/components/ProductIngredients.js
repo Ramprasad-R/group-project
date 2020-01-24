@@ -1,20 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import DisplayProductIngredients from "./DisplayProductIngredients";
 
-export default function ProductIngredients(props) {
-  const productId = props.match.params.productId;
-  console.log("Product Nutrients Value", productId);
-  //fetch data here:
-
-  const invokeAPIToFetchData = async () => {
+export default class ProductIngredients extends Component {
+  state = {
+    loading: true,
+    productInfo: []
+  };
+  invokeAPIToFetchData = async () => {
     try {
+      const productId = this.props.match.params.productId;
       const productInfo = await fetch(
         `https://api.spoonacular.com/food/products/${productId}?apiKey=${process.env.REACT_APP_API_KEY}`
       );
       const parsedproductInfo = await productInfo.json();
-      console.log("parsedproductInfo: ", parsedproductInfo);
-      return parsedproductInfo;
+      this.setState({
+        loading: false,
+        productInfo: parsedproductInfo
+      });
     } catch (error) {
       this.setState({
         error: error
@@ -22,26 +25,20 @@ export default function ProductIngredients(props) {
     }
   };
 
-  const detailedProductInfo = invokeAPIToFetchData();
-  // const testData = {
-  //   nutrients: [
-  //     {
-  //       title: "Test1",
-  //       unit: "cal",
-  //       amount: 123,
-  //       percentOfDailyNeeds: "dummy"
-  //     },
-  //     { title: "Test2", unit: "cal", amount: 123, percentOfDailyNeeds: "dummy" }
-  //   ]
-  // };
-  return (
-    <div className="productIngredients">
-      <h1>Product Nutrients Value</h1>
-      <DisplayProductIngredients
-        title={detailedProductInfo.title}
-        nutrition={detailedProductInfo}
-      />
-      <Link to="/">Go back to the index</Link>
-    </div>
-  );
+  componentDidMount = async () => this.invokeAPIToFetchData();
+
+  render() {
+    return this.state.loading ? (
+      <div> Data Loading ... </div>
+    ) : (
+      <div className="productIngredients">
+        <h1>Product Nutrients Value</h1>
+        <DisplayProductIngredients
+          title={this.state.productInfo.title}
+          nutrition={this.state.productInfo.nutrition}
+        />
+        <Link to="/">Go back to the index</Link>
+      </div>
+    );
+  }
 }
