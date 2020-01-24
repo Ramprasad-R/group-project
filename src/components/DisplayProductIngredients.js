@@ -2,6 +2,8 @@ import React from "react";
 
 function DisplayProductIngredients(props) {
   const { title, nutrition } = props;
+  console.log("info props", props);
+
   return (
     <div className="productIngredientsContainer">
       <h1>{title}</h1>
