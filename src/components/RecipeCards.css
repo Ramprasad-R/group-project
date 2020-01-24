@@ -3,6 +3,7 @@
   height: 20%;
   margin: 10px;
   display: inline-block;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 .recipeCard img {
